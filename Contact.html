@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #cc5f5f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(144, 131, 131, 0.1);
+    background-image: url(image/BACKGROUND.webp);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 380px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #af5454;
+    border-radius: 5px;
+   
+}
+
+button {
+    background-color: #200ee9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+</style>
+<body style="background-image:url(image/backgrond.webp);">
+    <div class="container">
+        <h2 style="color: #ccc;  font-weight: bolder;">Contact Form</h2>
+        <form id="registrationForm" style="width: 400px;">
+            <div class="form-group">
+                <label for="username" style="color: #ccc;  font-weight: bolder;">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email" style="color: #ccc;  font-weight: bolder;">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password" style="color: #ccc;  font-weight: bolder;">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword" style="color: #ccc;  font-weight: bolder;">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit" style="color: #ccc;  font-weight: bolder;">Register</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script>
+      document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var message = document.getElementById("message");
+    
+        if (password !== confirmPassword) {
+            message.textContent = "Passwords do not match!";
+            message.style.color = "red";
+        } else {
+            message.textContent = `Registration successful! Welcome, ${username}!`;
+            message.style.color = "green";
+            // Here you can send the form data to the server or perform other actions as needed.
+        }
+    });
+    
+    </script>
+</body>
+
+</html>
